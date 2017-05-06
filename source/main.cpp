@@ -277,15 +277,15 @@ val1 = content.find("http");
 val2 = content.find('"',val1);
 
 gdrive = content.substr(val1,val2 - val1);
- consoleSelect(&bottomScreen);
-cout << gdrive << endl;
+ 	consoleSelect(&bottomScreen);
+	cout << gdrive << endl;
 	// Try the following for redirection to the above URL.
 	// ret=http_download("http://tinyurl.com/hd8jwqx");
-consoleSelect(&topScreen);
- consoleClear();
+	consoleSelect(&topScreen);
+	consoleClear();
 	cout << "VIDEO EXTRAIDO: PRESIONA START PARA CONTINUAR." << endl;
-APT_PrepareToStartSystemApplet(APPID_WEB);
-APT_StartSystemApplet(APPID_WEB, gdrive.c_str(), 1024, 0);
+	APT_PrepareToStartSystemApplet(APPID_WEB);
+	APT_StartSystemApplet(APPID_WEB, gdrive.c_str(), 1024, 0);
 
 	gfxFlushBuffers();
 
@@ -297,7 +297,9 @@ APT_StartSystemApplet(APPID_WEB, gdrive.c_str(), 1024, 0);
             break;
 
         gfxFlushBuffers();
+	gspWaitForVBlank();
         gfxSwapBuffers();
+	gspWaitForVBlank();
     }
 
     gfxExit();
